@@ -1,0 +1,76 @@
+@media (max-width: 992px) {
+    .main-container{
+        margin-top: 25px;
+        margin-left: 6%;
+        margin-right: 6%;
+        padding: 2% 5%;
+    }
+    .header{
+        font-size: 24px!important;
+        letter-spacing: 0.2em;
+    }
+    .emblem{
+        width: 70px;
+    }
+    .inform{
+        font-size: 12px;
+        letter-spacing: 0.2em;
+    }
+}
+@media (max-width: 768px) {
+    .header{
+        font-size: 22px!important;
+        letter-spacing: 0.1em;
+    }
+    .emblem{
+        width: 60px;
+    }
+    .language-row{
+        margin-left: 3%;
+    }
+    .btn-default{
+        font-size: 10px;
+    }
+    .inform{
+        font-size: 12px;
+        letter-spacing: 0.1em;
+    }
+    .btn-border-bottom, .btn-span{
+        font-size: 14px;
+    }
+    .inner-container{
+        padding: 15px 0;
+
+    }
+    .header-row{
+        margin-left: 6px;
+        margin-right: 6px;
+    }
+}
+@media (max-width: 576px) {
+    .header{
+        font-size: 15px!important;
+        letter-spacing: 0.1em;
+    }
+    .emblem{
+        width: 50px;
+    }
+    .language-row{
+        margin-left: 3%;
+    }
+
+    .inform{
+        font-size: 8px;
+        letter-spacing: 0.1em;
+    }
+    .btn-border-bottom, .btn-span{
+        font-size: 12px;
+    }
+
+}
+
+
+
+
+
+@media (max-width: 1200px) { }
