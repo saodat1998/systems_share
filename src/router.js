@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './login/LoginPage.vue'
-import Calendar from "./views/HomePage";
+import HomePage from "@/views/home/HomePage";
+import Mail from "@/views/home/Mail";
+import Index from "@/views/home/Index";
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
   mode: 'history',
@@ -11,18 +12,27 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'login',
-      component: () => import('./login/LoginPage.vue')
-    },
-    {
-      path: '/mail',
-      name: 'mail',
-      component: () => import('./views/Mail.vue')
+      name: 'Login',
+      component: () => import('./views/Login.vue')
     },
     {
       path: '/home',
       name: 'home',
-      component: () => import('./views/HomePage.vue')
+      component: Index,
+
+      children: [
+        {
+          path: '/',
+          name: 'home',
+          component: HomePage
+        },
+        {
+          path: 'mail',
+          name: 'mail',
+          component: Mail
+        },
+      ]
+
     }
   ]
 })

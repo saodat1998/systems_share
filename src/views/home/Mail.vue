@@ -1,10 +1,10 @@
 <template>
-    <div class="mail">
-        <div class="row mail-row">
+    <div class="mail container-fluid">
+        <div class="row">
             <div class="col-xl-2 col-lg-3 col-md-3 col-sm-3 col-4">
                 <ul class="list-group">
                     <li class="list-group-item header">
-                        <img src="../../public/images/design/receive.png" class="header-image" alt="..."> Received
+                        <img src="../../../public/images/design/receive.png" class="header-image" alt="..."> Received
                     </li>
                     <li class="list-group-item float-left">
                         <router-link class="sideRouter" to="/home">Done</router-link>
@@ -12,11 +12,10 @@
                     </li>
 
                     <li class="list-group-item active">Undone <span class="number float-right">150/71</span></li>
-                    <li class="list-group-item">Finished <span class="number float-right">150/71</span></li>
-                    <li class="list-group-item">Archived <span class="number float-right">150/71</span></li>
-                    <li class="list-group-item">Ordered <span class="number float-right">150/71</span></li>
+
+
                     <li class="list-group-item header">
-                        <img src="../../public/images/design/send.png" class="header-image" alt="..."> Send
+                        <img src="../../../public/images/design/send.png" class="header-image" alt="..."> Send
                     </li>
                     <li class="list-group-item float-left">
                         <router-link class="sideRouter" to="/home">Done</router-link>
@@ -24,7 +23,7 @@
                     </li>
 
                     <li class="list-group-item active">Undone <span class="number float-right">150/71</span></li>
-                    <li class="list-group-item">Finished <span class="number float-right">150/71</span></li>
+
 
 
                 </ul>
@@ -35,8 +34,8 @@
                     <div class="row">
                         <div class="col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="filter-row">
-                                <button class="btn btn-default mail-button"><img src="../../public/images/design/envelope.png" alt="">Message</button>
-                                <button class="btn btn-default mail-button"><img src="../../public/images/design/save.png" alt="">Save</button>
+                                <button class="btn btn-default mail-button"><img src="../../../public/images/design/envelope.png" alt="">Message</button>
+                                <button class="btn btn-default mail-button"><img src="../../../public/images/design/save.png" alt="">Save</button>
                             </div>
                             <div class="row filter-row">
                                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
@@ -49,7 +48,7 @@
                                                 <date-picker v-model="date" :config="options"></date-picker>
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text" id="btnGroupAddon">
-                                                        <img src="../../public/images/design/date.png" alt="...">
+                                                        <img src="../../../public/images/design/date.png" alt="...">
                                                     </div>
                                                 </div>
                                             </div>
@@ -67,7 +66,7 @@
                                                 <date-picker v-model="date2" :config="options"></date-picker>
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text">
-                                                        <img src="../../public/images/design/date.png" alt="...">
+                                                        <img src="../../../public/images/design/date.png" alt="...">
                                                     </div>
                                                 </div>
                                             </div>
@@ -95,7 +94,7 @@
                                                 <date-picker v-model="date" :config="options"></date-picker>
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text">
-                                                        <img src="../../public/images/design/date.png" alt="...">
+                                                        <img src="../../../public/images/design/date.png" alt="...">
                                                     </div>
                                                 </div>
                                             </div>
@@ -113,7 +112,7 @@
                                                 <date-picker v-model="date2" :config="options"></date-picker>
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text">
-                                                        <img src="../../public/images/design/date.png" alt="...">
+                                                        <img src="../../../public/images/design/date.png" alt="...">
                                                     </div>
                                                 </div>
                                             </div>
@@ -192,7 +191,7 @@
                                     </div>
                                 </div>
                                 <div class="col-xl-2 col-lg-1 col-md-1 col-sm-1 col-1">
-                                    <button class="btn btn-add"><img src="../../public/images/design/add.png"></button>
+                                    <button class="btn btn-add"><img src="../../../public/images/design/add.png"></button>
                                 </div>
 
                             </div>
@@ -216,44 +215,49 @@
                                     </div>
                                 </div>
                                 <div class="col-xl-2 col-lg-1 col-md-1 col-sm-1 col-1">
-                                    <button class="btn btn-add"><img src="../../public/images/design/add.png"></button>
+                                    <button class="btn btn-add"><img src="../../../public/images/design/add.png"></button>
                                 </div>
 
                             </div>
                         </div>
                     </div>
-
-                    <div class="org-title"><h4>Messages</h4></div>
-
-
-
-
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination">
-                            <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item active"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                    <span class="sr-only">Next</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
                 </div>
             </div>
-            <div class="message">
-
-            </div>
-
         </div>
+            <div class="doc-container">
+                <!--<div class="doc-container">-->
+                    <div class="doc-title"><h4>Nazoratdagi hujjatlar</h4></div>
+
+                        <!-- Main table element -->
+                        <b-row>
+                            <b-col md="6" class="my-1">
+                                <b-pagination
+                                        :total-rows="totalRows"
+                                        :per-page="perPage"
+                                        size="sm"
+                                        v-model="currentPage"
+                                        class="my-0"
+                                />
+                            </b-col>
+                        </b-row>
+
+                        <b-table bordered
+                                show-empty
+                                stacked="md"
+                                :items="items"
+                                :fields="fields"
+                                :current-page="currentPage"
+                                :per-page="perPage"
+                                :filter="filter"
+                                :sort-by.sync="sortBy"
+                                :sort-desc.sync="sortDesc"
+                                :sort-direction="sortDirection"
+                                @filtered="onFiltered"
+                        >
+
+                        </b-table>
+                <!--</div>-->
+            </div>
 
 
         <router-view/>
@@ -263,6 +267,30 @@
 <script>
     import datePicker from 'vue-bootstrap-datetimepicker';
     import 'pc-bootstrap4-datetimepicker/build/css/bootstrap-datetimepicker.css';
+    const items = [
+            { number: 1, correspondent: 'Tashkent Region',typeOfDoc:'Bayon', regNumber:'25 exat',
+                regDate: '12.02.2019', publishNumber: 'RK/12-15', publishDate:'10.02.2019', printedDate: '12.02.2019',
+                content: 'Navroz celebration'},
+            { number: 2, correspondent: 'vazirlar Mahkamasi',typeOfDoc:'Bayon', regNumber:'25 exat',
+                regDate: '12.02.2019', publishNumber: 'RK/12-15', publishDate:'10.02.2019', printedDate: '12.02.2019',
+                content: 'Navroz celebration'},
+            { number: 3, correspondent: 'Tashkent Region',typeOfDoc:'Bayon', regNumber:'25 exat',
+                regDate: '12.02.2019', publishNumber: 'RK/12-15', publishDate:'10.02.2019', printedDate: '12.02.2019',
+                content: 'Navroz celebration'},
+            { number: 4, correspondent: 'Tashkent Region',typeOfDoc:'Bayon', regNumber:'25 exat',
+                regDate: '12.02.2019', publishNumber: 'RK/12-15', publishDate:'10.02.2019', printedDate: '12.02.2019',
+                content: 'Navroz celebration'},
+            { number: 5, correspondent: 'vazirlar Mahkamasi',typeOfDoc:'Bayon', regNumber:'25 exat',
+                regDate: '12.02.2019', publishNumber: 'RK/12-15', publishDate:'10.02.2019', printedDate: '12.02.2019',
+                content: 'Navroz celebration'},
+            { number: 6, correspondent: 'Tashkent Region',typeOfDoc:'Bayon', regNumber:'25 exat',
+                regDate: '12.02.2019', publishNumber: 'RK/12-15', publishDate:'10.02.2019', printedDate: '12.02.2019',
+                content: 'Navroz celebration'},
+
+
+
+    ];
+
     export default {
         data () {
             return {
@@ -271,7 +299,55 @@
                 options: {
                     format: 'DD.MM.YYYY',
                     useCurrent: false,
-                }
+                },
+                items: items,
+                fields: [
+                    { key: 'number', label: '№'},
+                    { key: 'correspondent', label: 'Correspondent', sortable: true, class: 'text-center' },
+                    { key: 'typeOfDoc', label: 'Type of docs' },
+                    { key: 'regNumber', label: 'Registered Number' },
+                    { key: 'regDate', label: 'Registered Date' },
+                    { key: 'publishNumber', label: 'Published number' },
+                    { key: 'publishDate', label: 'Published Date' },
+                    { key: 'printedDate', label: 'Printed Date' },
+                    { key: 'content', label: 'Content' }
+                ],
+                currentPage: 1,
+                perPage: 5,
+                totalRows: items.length,
+                pageOptions: [5, 10, 15],
+                sortBy: null,
+                sortDesc: false,
+                sortDirection: 'asc',
+                filter: null,
+                modalInfo: { title: '', content: '' }
+            }
+
+        },
+        computed: {
+            sortOptions() {
+                // Create an options list from our fields
+                return this.fields
+                    .filter(f => f.sortable)
+                    .map(f => {
+                        return { text: f.label, value: f.key }
+                    })
+            }
+        },
+        methods: {
+            info(item, index, button) {
+                this.modalInfo.title = `Row index: ${index}`
+                this.modalInfo.content = JSON.stringify(item, null, 2)
+                this.$root.$emit('bv::show::modal', 'modalInfo', button)
+            },
+            resetModal() {
+                this.modalInfo.title = '';
+                this.modalInfo.content = ''
+            },
+            onFiltered(filteredItems) {
+                // Trigger pagination to update the number of buttons/pages due to filtering
+                this.totalRows = filteredItems.length
+                this.currentPage = 1
             }
         },
         components: {
@@ -307,6 +383,29 @@
         font-size: 18px;
         text-align: center;
         color: #474747;
+    }
+    .doc-title{
+        height: 49px;
+        border-bottom: 1px solid #E7E7E7;
+        box-sizing: border-box;
+        padding: 1%;
+    }
+    .doc-title h4{
+        font-family: 'Lato', sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        line-height: normal;
+        font-size: 18px;
+        text-align: left;
+        color: #474747;
+    }
+    .doc-container{
+        margin-top: 1rem;
+        border: 1px solid #E7E7E7;
+        box-sizing: border-box;
+        display: block;
+        height: auto;
+        padding: 0;
     }
     .sideRouter{
         color: inherit;
