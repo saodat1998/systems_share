@@ -241,6 +241,7 @@
                             </b-col>
                         </b-row>
 
+
                         <b-table bordered
                                 show-empty
                                 stacked="md"
@@ -255,7 +256,32 @@
                                 @filtered="onFiltered"
                         >
 
+                        <template slot="resolution" slot-scope="row">
+                            <tr class="b-custom-table-row">
+                                {{ row.value.person1 }}
+                            </tr>
+                            <tr class="b-custom-table-row">
+                                {{ row.value.person2 }}
+                            </tr>
+                        </template>
+                        <template slot="ijroDate" slot-scope="row">
+                            <tr class="b-custom-table-row">
+                                {{ row.value.date1 }}
+                            </tr>
+                            <tr class="b-custom-table-row">
+                                {{ row.value.date2 }}
+                            </tr>
+                        </template>
+
+                        <template slot="row-details" slot-scope="row">
+                            <b-card>
+                                <ul>
+                                    <li v-for="(value, key) in row.item" :key="key">{{ key }}: {{ value }}</li>
+                                </ul>
+                            </b-card>
+                        </template>
                         </b-table>
+
                 <!--</div>-->
             </div>
 
@@ -270,7 +296,10 @@
     const items = [
             { number: 1, correspondent: 'Tashkent Region',typeOfDoc:'Bayon', regNumber:'25 exat',
                 regDate: '12.02.2019', publishNumber: 'RK/12-15', publishDate:'10.02.2019', printedDate: '12.02.2019',
-                content: 'Navroz celebration'},
+                content: 'Navroz celebration',
+            resolution: {person1: 'Shokirov', person2: 'Soliev'},
+                ijroDate: {date1: '12.03.2018', date2: '12.02.2019'},
+            },
             { number: 2, correspondent: 'vazirlar Mahkamasi',typeOfDoc:'Bayon', regNumber:'25 exat',
                 regDate: '12.02.2019', publishNumber: 'RK/12-15', publishDate:'10.02.2019', printedDate: '12.02.2019',
                 content: 'Navroz celebration'},
@@ -310,7 +339,9 @@
                     { key: 'publishNumber', label: 'Published number' },
                     { key: 'publishDate', label: 'Published Date' },
                     { key: 'printedDate', label: 'Printed Date' },
-                    { key: 'content', label: 'Content' }
+                    { key: 'content', label: 'Content' },
+                    { key: 'resolution', label: 'Rezolyutsiya' },
+                    { key: 'ijroDate', label: 'Ijro muddati' }
                 ],
                 currentPage: 1,
                 perPage: 5,
@@ -361,13 +392,22 @@
 
 </script>
 <style scoped>
+
+    .b-custom-table-row{
+        width: 100%;
+        margin-top: 0;
+        height: auto;
+        display: block;
+    }
+
+    .b-custom-table-hr{
+        margin-left: -15%;
+        width: 130%;
+    }
     .mail{
         margin-top: 10px;
     }
-    .mail-row{
-        margin-right: 3%;
-        margin-left: 3%;
-    }
+
     .org-title{
         height: 49px;
         background: #F4F4F4;

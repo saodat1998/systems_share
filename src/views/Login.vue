@@ -30,14 +30,14 @@
                             </h2>
                         </div>
                         <div class="row">
-                            <form @submit.prevent="login">
+                            <form @submit.prevent="loginRequest">
                                 <div class="form-group">
                                     <input
-                                            type="email"
+                                            type="text"
                                             class="form-control"
                                             aria-describedby="emailHelp"
-                                            placeholder="E-mail"
-                                            v-model="email">
+                                            placeholder="Username"
+                                            v-model="login">
                                 </div>
                                 <div class="form-group">
                                     <input type="password"
@@ -85,16 +85,17 @@
         data(){
 
             return {
-                email : "",
+                login : "",
                 password : "",
                 error: false,
             }
         },
         methods: {
-            login () {
-                this.$http.post('/auth', { user: this.email, password: this.password })
+            loginRequest () {
+                this.$http.post('/auth', { login: this.login, password: this.password })
                     .then(request => this.loginSuccessful(request))
-                    .catch(() => this.loginFailed())
+                    .catch(() => this.loginFailed());
+
             },
             loginSuccessful (req) {
                 if (!req.data.token) {
@@ -106,6 +107,9 @@
                 this.error = false;
 
                 this.$router.replace(this.$route.query.redirect || '/home')
+                console.log("login: "+this.login);
+                console.log("password: "+this.password);
+                console.log("token: "+localStorage.token);
             },
             loginFailed () {
                 this.error = 'Login failed!';
