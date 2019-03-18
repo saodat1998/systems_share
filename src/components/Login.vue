@@ -6,8 +6,10 @@
 
                     <div class="row language-row">
                         <div class="dropdown">
-                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span><img src="../images/design/Vector.png" alt=""></span> English
+                            <button class="btn btn-default dropdown-toggle"
+                                    type="button"
+                                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span><img src="../assets/images/design/Vector.png" alt=""></span> English
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" href="#">Ru</a>
@@ -18,7 +20,7 @@
                     <div class="inner-container">
                         <div class="row header-row">
                             <div class="col-12">
-                                <img src="../images/items/gerb_uzbekistana.png" class="emblem float-left" alt="...">
+                                <img src="../assets/images/items/gerb_uzbekistana.png" class="emblem float-left" alt="...">
                                 <h1 class="header">
                                     Toshkent viloyati nazorat ijrosi tizimi
                                 </h1>
@@ -80,6 +82,7 @@
 </template>
 
 <script>
+
     export default {
         name: 'Login',
         data(){
@@ -88,11 +91,13 @@
                 login : "",
                 password : "",
                 error: false,
+
             }
         },
-        methods: {
+
+         methods: {
             loginRequest () {
-                this.$http.post('/auth', { login: this.login, password: this.password })
+                this.$http.post('/auth', { login: this.login, password: this.password, results: this.results })
                     .then(request => this.loginSuccessful(request))
                     .catch(() => this.loginFailed());
 
@@ -106,7 +111,7 @@
                 localStorage.token = req.data.token;
                 this.error = false;
 
-                this.$router.replace(this.$route.query.redirect || '/home')
+                this.$router.replace(this.$route.query.redirect || '/home');
                 console.log("login: "+this.login);
                 console.log("password: "+this.password);
                 console.log("token: "+localStorage.token);
@@ -114,14 +119,13 @@
             loginFailed () {
                 this.error = 'Login failed!';
                 delete localStorage.token
-            }
+            },
 
         }
     }
 </script>
 
 <style scoped>
-
     .main-container{
         width: 100%;
         height: auto;
@@ -173,7 +177,6 @@
         text-transform: uppercase;
         color: #3F4756;
     }
-
     .header-auth{
         /* authorization */
         font-family: 'Lato', sans-serif;
@@ -282,7 +285,7 @@
         background-size: 0;
         background-position: center;
         background-repeat: no-repeat;
-        background-image: url("../views/images/design/checked.png");
+        background-image: url("/images/design/checked.png");
     }
 
     .custom-control.fill-checkbox .fill-control-input:checked ~ .fill-control-indicator {

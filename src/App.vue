@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <navigation v-if="$route.name != 'Login'"></navigation>
     <router-link to="/"></router-link>
     <router-link to="/home"></router-link>
     <router-view></router-view>
@@ -8,9 +9,11 @@
 
 <script>
 
+import Navigation from "./components/home/Navigation";
 export default {
   name: 'app',
   components: {
+    Navigation
 
   }
 }

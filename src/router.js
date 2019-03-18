@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HomePage from "@/views/home/HomePage";
-import Mail from "@/views/home/Mail";
-import Index from "@/views/home/Index";
+import HomePage from "@/components/home/HomePage";
+import Mail from "@/components/home/Mail";
+import Settings from "@/components/home/Settings";
+import Login from "./components/Login";
 
 Vue.use(Router);
 
@@ -12,27 +13,26 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Login',
-      component: () => import('./views/Login.vue')
+      name: 'home',
+      component: HomePage
     },
     {
-      path: '/home',
-      name: 'home',
-      component: Index,
+      path: '/login',
+      name: 'Login',
+      component: Login,
+    },
 
-      children: [
-        {
-          path: '/',
-          name: '',
-          component: HomePage
-        },
-        {
-          path: 'mail',
-          name: 'mail',
-          component: Mail
-        },
-      ]
+    {
+      path: '/mail',
+      name: 'mail',
+      component: Mail
+    },
+    {
+      path: '/settings',
+      name: 'settings',
+      component: Settings
+    },
 
-    }
-  ]
+
+    ]
 })

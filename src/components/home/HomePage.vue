@@ -8,30 +8,23 @@
 
                     <thead>
                     <tr>
-                        <th class="sub-header">My tasks:</th>
+                        <th class="sub-header">Yuklatilgan topshiriqlar:</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
-                        <th scope="row">Done</th>
+                        <th scope="row">Nazoratdagi: </th>
                         <td>351</td>
                     </tr>
                     <tr>
-                        <th scope="row">Undone</th>
+                        <th scope="row">Muddati o'tgan: </th>
                         <td>35</td>
                     </tr>
                     <tr>
-                        <th scope="row">Expired</th>
+                        <th scope="row">Ijro muddati kelmagan</th>
                         <td>12</td>
                     </tr>
-                    <tr>
-                        <th scope="row">Finished</th>
-                        <td>120</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Process of tasks</th>
-                        <td>94%</td>
-                    </tr>
+
                     </tbody>
                 </table>
             </div>

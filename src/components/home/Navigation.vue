@@ -1,45 +1,42 @@
 <template>
-    <div id="app">
-
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarText">
-                    <ul class="navbar-nav mr-auto"  id="nav">
-                        <li class="nav-item active">
-                            <router-link class="myRouter" to="/home"><a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a></router-link>
-                        </li>
-                        <li class="nav-item">
-                            <router-link to="/home/mail"><a class="nav-link" href="#">Mail</a></router-link>
-                        </li>
-                        <li class="nav-item">
-                            <router-link to="/"><a class="nav-link" href="#">Report</a></router-link>
-                        </li>
-                        <li class="nav-item">
-                            <router-link to=""><a class="nav-link" href="#">Service</a></router-link>
-                        </li>
-                        <li class="nav-item">
-                            <router-link to=""><a class="nav-link" href="#">Help</a></router-link>
-                        </li>
-                    </ul>
-                    <span class="navbar-text">
-            <a href="#" class="icons"><img src="../../../public/images/design/user.png" alt="..."> Abdullaev J.A </a>
-            <a href="#" class="icons"><img src="../../../public/images/design/log-out.png" alt="..."> Log Out</a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav mr-auto"  id="nav">
+                    <li class="nav-item active">
+                        <router-link class="myRouter" to="/"><a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a></router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link to="/mail"><a class="nav-link" href="#">Mail</a></router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link to="/"><a class="nav-link" href="#">Report</a></router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link to="/settings"><a class="nav-link" href="#">Settings</a></router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link to=""><a class="nav-link" href="#">Help</a></router-link>
+                    </li>
+                </ul>
+                <span class="navbar-text">
+            <a href="#" class="icons"><img src="../../assets/images/design/user.png" alt="..."> Abdullaev J.A </a>
+            <a href="#" class="icons"><img src="../../assets/images/design/log-out.png" alt="..."> Log Out</a>
         </span>
-                </div>
             </div>
-        </nav>
-        <router-view/>
-    </div>
+        </div>
+    </nav>
 </template>
 
 <script>
     export default {
-        name: "Index"
+        name: "Navigation"
     }
 </script>
+
 
 <style scoped>
     a:hover{
@@ -60,7 +57,6 @@
         border: 1px solid #E7E7E7;
         box-sizing: border-box;
         box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.08);
-
     }
     .navbar-expand-lg .navbar-nav .nav-item .nav-link, .myRouter a{
         font-family: 'Lato', sans-serif;
@@ -82,7 +78,6 @@
     .navbar-light .navbar-nav .show>.nav-link {
         display: block;
         background-color: #008cba;
-
         padding-top: 17px;
         color: #FFFFFF;
     }
@@ -98,7 +93,6 @@
         font-weight: normal;
         line-height: normal;
         font-size: 16px;
-
         color: #666666!important;
     }
     .icons:hover{
