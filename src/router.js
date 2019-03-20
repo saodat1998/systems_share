@@ -4,6 +4,7 @@ import HomePage from "@/components/home/HomePage";
 import Mail from "@/components/home/Mail";
 import Settings from "@/components/home/Settings";
 import Login from "./components/Login";
+import Resolution from "./components/home/MailComponents/Resolution";
 
 Vue.use(Router);
 
@@ -25,7 +26,14 @@ export default new Router({
     {
       path: '/mail',
       name: 'mail',
-      component: Mail
+      component: Mail,
+
+    },
+    {
+      path: '/resolution',
+      name: 'resolution',
+      component: Resolution,
+
     },
     {
       path: '/settings',

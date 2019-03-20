@@ -155,6 +155,9 @@
                         <b-table bordered
                                 show-empty
                                 stacked="md"
+                                 selectable
+                                 :select-mode="selectMode"
+                                 selectedVariant="success"
                                 :items="items"
                                 :fields="fields"
                                 :current-page="currentPage"
@@ -164,18 +167,50 @@
                                 :sort-desc.sync="sortDesc"
                                 :sort-direction="sortDirection"
                                 @filtered="onFiltered"
+                                @row-selected="rowSelected"
                         >
 
-                        <template slot="masul" slot-scope="row">
-                            <tr v-for="(value, key) in row.value" :key="key" class="b-custom-table-row">
-                                {{value}}
-                            </tr>
-                        </template>
-                        <template slot="ijroDate" slot-scope="row">
-                            <tr v-for="(value, key) in row.value" :key="key" class="b-custom-table-row">
-                                {{value}}
-                            </tr>
-                        </template>
+
+                        <!--<template slot="resolutions" slot-scope="resolutions">-->
+                            <!--<tr v-for="(resolution, key) in resolutions" :key="key" class="b-custom-table-row">-->
+                                <!--{{resolution.resolutionType}}-->
+                            <!--</tr>-->
+                        <!--</template>-->
+                            <template slot="HEAD_resolutions" slot-scope="data">
+                                <tr v-for="(value, key) in data.value" :key="key" class="b-custom-table-row">
+                                    {{value.label}}
+                                </tr>
+
+                            </template>
+                            <template slot="resolutions" slot-scope="row">
+                                <b-table bordered
+                                         show-empty
+                                         stacked="md"
+                                         :items="items2"
+                                         :fields="fields2"
+
+
+                                >
+
+                               <template slot="people" slot-scope="row">
+                                    <tr v-for="(person, key) in row.value" :key="key" class="b-custom-table-row">
+                                        {{person}}
+                                    </tr>
+                                </template>
+
+                                </b-table>
+
+                            </template>
+
+                            <template slot="id_permissions" slot-scope="id_permissions">
+                                <tr v-for="(id_permission, key) in id_permissions.value" :key="key.value">
+                                    <span v-for="(permission, key2) in permissions" :key="key2">
+                                       <span v-if="id_permission === permission.id">
+                                          {{permission.description}}
+                                       </span>
+                                    </span>
+                                </tr>
+                            </template>
 
 
                         <template slot="row-details" slot-scope="row">
@@ -198,12 +233,36 @@
 <script>
     import datePicker from 'vue-bootstrap-datetimepicker';
     import 'pc-bootstrap4-datetimepicker/build/css/bootstrap-datetimepicker.css';
+    import router from 'vue-router'
+
+    const resolutions = [
+        {
+            resolutionType: "1-qism boyicha tegishli choralarni korish",
+            people: ["Shokirov","Soliev"],
+            ijroDate: "12.02.2010",
+            nazoratchi: "Kamolov"
+        },
+        {
+            resolutionType: "2-qism boyicha tegishli choralarni korish",
+            people: ["Shokirov2","Soliev"],
+            ijroDate: "12.02.2010",
+            nazoratchi: "Kamolov2"
+        },
+        {
+            resolutionType: "3-qism boyicha tegishli choralarni korish",
+            people: ["Shokirov3","Soliev"],
+            ijroDate: "12.02.2010",
+            nazoratchi: "Kamolov3"
+        }
+    ];
     const items = [
             { number: 1, correspondent: 'Tashkent Region',typeOfDoc:'Bayon', regNumber:'25 exat',
                 regDate: '12.02.2019', publishNumber: 'RK/12-15', publishDate:'10.02.2019', printedDate: '12.02.2019',
                 content: 'Navroz celebration',
-                masul: {person1: 'Shokirov', person2: 'Soliev', person3: "Achilov"},
-                ijroDate: {date1: '12.03.2018', date2: 'none', date3: "12.01.2020"},
+                //
+                // masul: resolutions.people,
+                // ijroDate: resolutions.ijroDate,
+                // nazoratchi: resolutions.nazoratchi,
             },
             { number: 2, correspondent: 'vazirlar Mahkamasi',typeOfDoc:'Qaror', regNumber:'25 exat',
                 regDate: '12.02.2019', publishNumber: 'RB/12-15', publishDate:'10.02.2019', printedDate: '12.02.2019',
@@ -228,6 +287,7 @@
     export default {
         data () {
             return {
+                post: null,
                 selectedRadio: 'first',
                 optionsRadio: [
                     { text: 'Barchasi', value: 'first' },
@@ -242,6 +302,9 @@
                     useCurrent: false,
                 },
                 items: items,
+                selectMode: 'single',
+                selected: [],
+                items2: resolutions,
                 fields: [
                     { key: 'number', label: '№'},
                     { key: 'correspondent', label: 'Korrespondent', sortable: true, class: 'text-center' },
@@ -252,8 +315,18 @@
                     { key: 'publishDate', label: 'Chiqish sanasi' },
                     { key: 'printedDate', label: 'Tarqatish sanasi' },
                     { key: 'content', label: 'Hujjat mazmuni' },
-                    { key: 'resolution', label: 'Rezolyutsiya' },
-                    { key: 'masul', label: 'Masul' },
+                    { key: 'resolutions', label: 'Rezolyutsiya' },
+                    // { key: 'people', label: 'Masul' },
+                    // { key: 'ijroDate', label: 'Ijro muddati' },
+                    // { key: 'ijroIlova', label: 'Ijro boyicha ilova' },
+                    // { key: 'bajDate', label: 'Bajarilgan muddati' },
+                    // { key: 'nazoratHolati', label: 'Nazorat holati' },
+                    // { key: 'nazoratchi', label: 'Nazoratchi' }
+
+                ],
+                fields2: [
+                    { key: 'resolutionType', label: 'Rezolyutsiya' },
+                    { key: 'people', label: 'Masul' },
                     { key: 'ijroDate', label: 'Ijro muddati' },
                     { key: 'ijroIlova', label: 'Ijro boyicha ilova' },
                     { key: 'bajDate', label: 'Bajarilgan muddati' },
@@ -295,8 +368,13 @@
             },
             onFiltered(filteredItems) {
                 // Trigger pagination to update the number of buttons/pages due to filtering
-                this.totalRows = filteredItems.length
+                this.totalRows = filteredItems.length;
                 this.currentPage = 1
+            },
+            rowSelected(items) {
+                this.selected = items;
+
+                this.$router.push({ path: '/resolution/:items.number    ' });
             }
         },
         components: {
@@ -309,6 +387,7 @@
 
 
 </script>
+
 <style scoped>
     .dark{
         background: #4E4E4E;
