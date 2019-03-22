@@ -97,7 +97,7 @@
 
          methods: {
             loginRequest () {
-                this.$http.post('/auth', { login: this.login, password: this.password, results: this.results })
+                this.$http.post('/login/auth', { login: this.login, password: this.password, results: this.results })
                     .then(request => this.loginSuccessful(request))
                     .catch(() => this.loginFailed());
 
